@@ -35,7 +35,7 @@ function TestimonialsGallery() {
       name: "לירז",
       role: "בעלת עסק",
       quote: "חד משמעית שווה את זה",
-      previewSrc: "/testimonials/t1.mp4",
+      previewSrc: "https://res.cloudinary.com/dordmerc0/video/upload/v1768743558/t1_mwaduc.mov",
       fullVideoUrl: "https://example.com/full-video-1",
     },
     {
@@ -43,7 +43,7 @@ function TestimonialsGallery() {
       name: "אופק",
       role: "שכירה בהייטק",
       quote: "נתת לחלום שלי חיים",
-      previewSrc: "/testimonials/t2.mp4",
+      previewSrc: "https://res.cloudinary.com/dordmerc0/video/upload/v1768743526/t2_ti2tc4.mp4",
       fullVideoUrl: "https://example.com/full-video-2",
     },
     {
@@ -59,8 +59,7 @@ function TestimonialsGallery() {
       name: "",
       role: "צילום מסך",
       quote: "אם לא את הייתי מוותרת",
-      imageSrc:
-        "https://res.cloudinary.com/dordmerc0/video/upload/v1768743558/t1_mwaduc.mov",
+      imageSrc: "/testimonials/t1.jpg",
       alt: "צילום מסך המלצה בוואטסאפ",
     },
     {
@@ -68,8 +67,7 @@ function TestimonialsGallery() {
       name: "",
       role: "צילום מסך",
       quote: "לייצר סביבה טובה",
-      imageSrc:
-        "https://res.cloudinary.com/dordmerc0/video/upload/v1768743526/t2_ti2tc4.mp4",
+      imageSrc: "/testimonials/t2.png",
       alt: "צילום מסך המלצה בוואטסאפ",
     },
     {
