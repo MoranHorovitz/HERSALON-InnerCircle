@@ -6,8 +6,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/inner-circle" element={<InnerCirclePage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<InnerCirclePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
