@@ -39,7 +39,6 @@ function PrimaryCTA({ onClick }: { onClick: () => void }) {
         onClick={onClick}
         className="h-16 rounded-[999px] bg-brand px-12 text-base font-semibold text-white shadow-btn hover:opacity-95 transition inline-flex items-center gap-3"
       >
-        <span className="text-xl">←</span>
         לבקשת שיחת התאמה
       </button>
     </GlowCapture>
@@ -101,8 +100,8 @@ function Modal({ open, onClose }: { open: boolean; onClose: () => void }) {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="text-sm text-slate-500">בקשת שיחת התאמה</div>
-                  <div className="mt-1 text-xl font-bold text-slate-900">
-                    HERSALON | Inner Circle
+                  <div className="mt-1 text-xl font-bold text-brand">
+                    HERSALON
                   </div>
                 </div>
                 <button
@@ -189,7 +188,33 @@ export default function InnerCirclePage() {
       {
         icon: "✦",
         title: "8 מפגשי עבודה פיזיים",
-        desc: "8 שבועות. ספרינט אחד. 19:00–22:00. מפגשים צפופים שמייצרים תוצר.",
+        desc: "8 מפגשי עבודה פיזיים ברמת גן בשעות הערב שמתאימות לנשים עם לוז מלא. מפגשים צפופים שמייצרים תוצר.",
+      },
+      {
+        icon: "✦",
+        title: "דדליין שאי אפשר לברוח ממנו",
+        desc: "אנחנו לא מדברות על העסק אנחנו בונות אותו. כל מפגש מסתיים בהתקדמות אמיתית.",
+      },
+      {
+        icon: "✦",
+        title: "AI + עיצוב חוויה",
+        desc: "כלי AI שחוסכים ימים + אריזה ועיצוב שגורמים למוצר להרגיש מליון דולר.",
+      },
+      {
+        icon: "✦",
+        title: "קבוצה מגובשת שמחזיקה אותך",
+        desc: "עד X משתתפות. נשים שבאות לעבוד. יחד זה קל יותר - ומתקדם מהר יותר.",
+      },
+    ],
+    []
+  );
+
+  const mentorCards = useMemo(
+    () => [
+      {
+        icon: "✦",
+        title: "8 מפגשי עבודה פיזיים",
+        desc: "8 מפגשי עבודה פיזיים ברמת גן בשעות הערב שמתאימות לנשים עם לוז מלא. מפגשים צפופים שמייצרים תוצר.",
       },
       {
         icon: "✦",
@@ -246,6 +271,124 @@ export default function InnerCirclePage() {
     []
   );
 
+  // ✅ Add this component somewhere above InnerCirclePage (same file)
+  // (uses framer-motion already imported)
+  function FAQSection() {
+    const faqs = [
+      {
+        q: "למה יש סינון לתכנית?",
+        a: `כי זו קבוצת עבודה, חשובה  התאמה של חברות הקבוצה זו לזו וגם התאמה של כל אחת לצורת העבודה. כדי שהפורמט יעבוד אנחנו שומרות על קבוצה קטנה שמגיעה פיזית, באה לעבוד בקצב גבוה, ומסוגלת להחזיק תהליך. הסינון נועד לשמור על האנרגיה, הקצב והאיכות של הקבוצה - גם בשבילך.`,
+      },
+      {
+        q: "איך מתבצעת שיחת ההתאמה?",
+        a: `שיחת התאמה קצרה (כ־15 דקות), אחד על אחד. נבדוק באיזה שלב את נמצאת, איזה רעיון את רוצה לקדם, והאם המסגרת הזו באמת יכולה לשרת אותך עכשיו. אין מבחן ואין “נכון/לא נכון” - רק התאמה או חוסר התאמה.`,
+      },
+      {
+        q: "מה בודקים בסינון?",
+        a: `שלושה דברים: (1) יכולת להגיע פיזית למפגש שבועי 19:00–22:00 ברמת גן, (2) בשלות לבוא לעבוד ולא רק “לקבל השראה”, (3) שיש לך רעיון/כיוון אמיתי שאת רוצה להזיז עכשיו (גם אם הוא עדיין לא סגור).`,
+      },
+      {
+        q: "מה אם אני עדיין לא בטוחה ברעיון?",
+        a: `זה בסדר גמור. הרבה משתתפות מגיעות עם כיוון כללי או כמה רעיונות. התהליך בנוי כדי לעזור לך לבחור פרויקט פוקוס אחד, להוריד מורכבות, ולהתחיל לבנות - לא להגיע כבר “סגורה”.`,
+      },
+      {
+        q: "זה מתאים גם למתכנתות / נשות מוצר / יוצרות?",
+        a: `כן. יש מקום למתכנתות שבונות אפליקציה/מוצר, ליוצרות שמפתחות שירות/סדנה/מוצר דיגיטלי, וגם לרעיונות עסקיים בתחילת הדרך. כל אחת עובדת על המיזם שלה - המסגרת מחזיקה את כולן.`,
+      },
+      {
+        q: "האם באמת עובדים במהלך המפגשים או שזה רק תוכן?",
+        a: `עובדים. בתוכנית יש 3–4 מפגשי Execution רשמיים שבהם לפטופים פתוחים ובונים בפועל: קוד, תשתית, עמוד, אוטומציות, נכסים שיווקיים - כל אחת את שלה, באותו חלל, בתוך המפגש.`,
+      },
+      {
+        q: "אני עובדת במשרה מלאה - זה ריאלי?",
+        a: `כן. המפגשים בערב ומתאימים לנשים עם לוז מלא. אנחנו לא בונות “עוד משימות”, אלא צעדים ממוקדים שמתקדמים בכל שבוע. המטרה היא מומנטום, לא עומס.`,
+      },
+      {
+        q: "מה אם לא אספיק להשיק עד הסוף?",
+        a: `המטרה היא לא “מושלם”, אלא “קיים”. בסיום התוכנית את יוצאת עם מוצר/הצעה מוגדרת + תשתית שמוכנה למכירה/פיילוט/בטא - ומשהו שמתקדם בעולם, לא רק בראש.`,
+      },
+      {
+        q: "מה לגבי המחיר?",
+        a: `זו לא סדנה חד־פעמית ולא קורס דיגיטלי. זו קבוצה קטנה מאוד, מפגשים ארוכים, עבודה אישית, ומנטורים שמגיעים לעבוד איתך בחדר אשר גובים מחיר גבוה מאוד לשעה של נוכחות שלהם. המחיר משקף עומק, נוכחות ואחריות וגם גורם לך להתחייב לתהליך במקסימום.`,
+      },
+      {
+        q: "מה קורה אם אחרי שיחת ההתאמה נבין שזה לא בשבילי?",
+        a: `אם זה לא מדויק - נגיד את זה בכנות. המטרה היא לא “למלא מקומות”, אלא לבנות קבוצה שעובדת. אם לא תהיה התאמה, אכוון אותך לאלטרנטיבה טובה יותר עבורך.`,
+      },
+    ];
+
+    const [openIdx, setOpenIdx] = useState<number | null>(0);
+
+    return (
+      <div className="mt-10 max-w-4xl mx-auto text-right">
+        <div className="text-4xl font-extrabold mb-6">מה עוד חשוב לדעת?</div>
+
+        <div className="space-y-3 pb-10">
+          {faqs.map((item, i) => {
+            const isOpen = openIdx === i;
+            const panelId = `faq-panel-${i}`;
+            const btnId = `faq-btn-${i}`;
+
+            return (
+              <div
+                key={item.q}
+                className="rounded-xl2 border border-slate-100 bg-white shadow-soft overflow-hidden"
+              >
+                <button
+                  id={btnId}
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  onClick={() => setOpenIdx(isOpen ? null : i)}
+                  className="w-full px-6 py-5 flex items-center justify-between gap-4 text-right"
+                >
+                  <div className="font-semibold text-slate-900">{item.q}</div>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="shrink-0 h-8 w-8 rounded-xl2 bg-brand/10 text-brand flex items-center justify-center"
+                  >
+                    ▾
+                  </motion.div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={btnId}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                      className="px-6"
+                    >
+                      <div className="pb-6 text-slate-600 leading-relaxed">
+                        {item.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="my-16 flex justify-center">
+          <GlowCapture className="inline-block rounded-[999px]" glowSize={300}>
+            <button
+              onClick={() => setOpen(true)}
+              className="h-14 rounded-[999px] bg-brand px-10 text-white font-semibold shadow-btn hover:opacity-95 transition"
+            >
+              לבקשת שיחת התאמה
+            </button>
+          </GlowCapture>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div dir="rtl" className="min-h-screen bg-white text-slate-900">
       {/* Top bar */}
@@ -256,14 +399,15 @@ export default function InnerCirclePage() {
               onClick={() => setOpen(true)}
               className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn hover:opacity-95 transition"
             >
-              הצטרפי ל-<span className="font-black">Inner Circle</span>
+              הצטרפי לתכנית ההאצה של
+              <span className="font-black"> HERSALON</span>
             </button>
           </GlowCapture>
 
           <div className="text-xl font-bold flex gap-1 items-center justify-center flex-row-reverse">
-            <div className="font-black">HERSALON</div>
-            <div className="font-extralight mt-[-4px]">|</div>
-            <div className="text-brand font-black">Inner Circle</div>
+            <div className="font-black text-brand">HERSALON</div>
+            {/* <div className="font-extralight mt-[-4px]">|</div>
+            <div className="text-brand font-black">Inner Circle</div> */}
           </div>
         </div>
       </div>
@@ -274,19 +418,19 @@ export default function InnerCirclePage() {
           <Reveal>
             <HeroTextWithDepthShadow
               text="HERSALON"
-              className="text-6xl sm:text-7xl font-black"
+              className="text-6xl sm:text-7xl font-black text-brand"
               shadowColorClass="text-brand"
             />
             <div className="">
               <HeroTextWithDepthShadow
-                text="Inner Circle"
-                className="text-5xl sm:text-6xl text-brand font-black"
+                text="מציגה"
+                className="relative text-3xl text-brand font-black"
                 shadowColorClass="text-brand"
                 scrollRange={620}
               />
             </div>
 
-            <div className="mt-2 text-lg font-extralight text-brand/80">
+            <div className="mt-2 text-2xl font-extralight text-black">
               8 שבועות · ספרינט אחד · מוצר באוויר
             </div>
             <div className="mt-6 text-lg sm:text-xl text-slate-600 font-bold">
@@ -303,18 +447,18 @@ export default function InnerCirclePage() {
             </p>
             <div className="mt-10 max-w-3xl mx-auto space-y-6 text-slate-600 leading-relaxed px-6 text-center text-lg">
               <p>
-                הבעיה שלך היא לא שחסרים לך רעיונות אלא שיש לך יותר מדי מהם.
-                <br />
+                הבעיה שלך היא לא שחסרים לך רעיונות אלא
+                <b className="px-1">שיש לך יותר מדי מהם </b> <br />
                 את חכמה, מוכשרת, “מתקתקת” קריירה ובית. <br />
                 על הנייר, הכל מצוין.
                 <br />
                 אבל בראש? יש לך “מגירת חלומות” שרק הולכת ומתמלאת.
               </p>
               <p className="text-[16px] font-extralight ">
-                רעיון למיזם דיגיטלי, סדנה שרצית להעביר, מוצר שחשבת לייצר... את
-                יודעת שיש בזה פוטנציאל לכסף ולסיפוק, אבל איכשהו, בין העבודה
-                לחיים, את לא מגיעה לזה. את מתחילה בשיא האנרגיה ונתקעת ברגע שזה
-                נהיה מסובך, טכני או בודד.
+                יש לך רעיון למיזם דיגיטלי, סדנה שרצית להעביר, מוצר שחשבת
+                לייצר... את יודעת שיש בזה פוטנציאל לכסף ולסיפוק, אבל איכשהו, בין
+                העבודה לחיים, את לא מגיעה לזה. את מתחילה בשיא האנרגיה ונתקעת
+                ברגע שזה נהיה מסובך, טכני או בודד.
               </p>
               <p className="text-[16px] font-extralight ">
                 וזה מייצר תסכול שקט. תחושה של החמצה. את רואה נשים אחרות (אולי
@@ -337,18 +481,71 @@ export default function InnerCirclePage() {
       </section>
 
       {/* WHAT'S INCLUDED */}
+      <section className="bg-[#252122] border-y text-slate-100 relative pr-14 pl-[500px]">
+        <div className="mx-auto px-2 pt-16 pb-4 text-center">
+          <div className="flex gap-4">
+            <div>
+              {" "}
+              <Reveal>
+                <div className="text-4xl sm:text-5xl text-white font-extrabold">
+                  צרי לעצמך קיצור דרך מטאורי למטרה!
+                </div>
+                <div className="mt-6 text-slate-100">
+                  בעזרת מנטורים מהשורה הראשונה שכבר הגשימו יעדים משוגעים ובאים
+                  לעבוד איתך בסלון! לא על במה! <br />
+                  חוויה שלא יצא לך לחוות באף הזדמנות אחרת בחיים.
+                </div>
+              </Reveal>
+              <div className="relative mt-10 inline-flex flex-wrap justify-center text-right gap-2">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Reveal key={i} delay={i * 0.06}>
+                    <GlowCapture
+                      className="border border-r-2 border-t-2 border-white rounded-2xl shadow-soft"
+                      glowColor="rgba(91,79,228,0.45)"
+                      glowSize={260}
+                    >
+                      <img
+                        src={`mentors/m${i}.png`}
+                        alt=""
+                        className="w-full h-[200px] object-cover rounded-2xl border-4 border-[#252122]"
+                      />
+                    </GlowCapture>
+                  </Reveal>
+                ))}
+              </div>{" "}
+              <h6 className="text-white/60 text-[11px] p-2 w-full text-center">
+                *רשימת המנטורים עשויה להשתנות
+              </h6>
+            </div>
+            <div className="aspect-video bg-black/5 h-full w-[420px] absolute top-0 left-0">
+              <video
+                className="w-full h-full object-cover object-center"
+                controls
+                src="a.mp4"
+                muted
+                autoPlay
+                loop
+                playsInline
+                preload="metadata"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT'S INCLUDED */}
       <section className="bg-slate-50 border-y border-slate-100">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
           <Reveal>
             <div className="text-4xl sm:text-5xl font-extrabold">
-              מה התהליך כולל?
+              מה התכנית כוללת?
             </div>
             <div className="mt-4 text-slate-500">
               בפועל, את מקבלת מעטפת מלאה לעשייה
             </div>
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 text-right">
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 text-center">
             {includeCards.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.06}>
                 <GlowCapture
@@ -462,16 +659,21 @@ export default function InnerCirclePage() {
                 ))}
               </div>
 
-              <div className="mt-10 rounded-xl2 bg-white/5 border border-white/10 p-6 text-white/70">
+              <div className="mt-10 text-center rounded-xl2 bg-white/5 border border-white/10 p-6 text-white">
                 לא כולן יוצאות באותו שלב אבל אף אחת לא נשארת תקועה
               </div>
-              <div className="mt-8 text-brand font-black text-center w-full">
-                לא “יום אחד”. לא “כשיהיה זמן”. עכשיו.
+              <div className="mt-8 text-brand font-black text-center w-full text-3xl">
+                לא “יום אחד”, לא “כשיהיה זמן”{" "}
+                <div className="text-white text-5xl">עכשיו</div>
               </div>
             </Reveal>
           </div>
         </div>
       </section>
+
+      <div className="mt-10">
+        <FAQSection />
+      </div>
 
       {/* PRICING */}
       <section className="bg-slate-50">
@@ -479,10 +681,15 @@ export default function InnerCirclePage() {
           <Reveal>
             <div className="rounded-xl2 bg-white shadow-soft border border-slate-100 p-10 md:p-14 text-center">
               <div className="text-4xl sm:text-5xl font-extrabold">
-                מחיר והרשמה
+                האם אני מוכנה כבר להפוך <br /> את הרעיון שלי למוצר קיים?
               </div>
 
-              <div className="mt-10 px-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+              {/* <div className="text-4xl sm:text-5xl font-extrabold">
+                כמה יעלה לי להפוך את הרעיון שלי
+                <br /> למוצר קיים?
+              </div> */}
+
+              {/* <div className="mt-10 px-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <div>
                   <div className="text-slate-400">הרשמה מוקדמת</div>
                   <div className="mt-2 text-5xl font-extrabold text-brand">
@@ -494,7 +701,7 @@ export default function InnerCirclePage() {
                   <div className="text-slate-400">הרשמה מאוחרת</div>
                   <div className="mt-2 text-5xl font-extrabold">₪8,888</div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="mt-6 text-slate-600 max-w-3xl mx-auto leading-relaxed">
                 <br /> הצטרפי אלינו לקבוצה מגובשת וסגורה (עד{" "}
@@ -528,8 +735,7 @@ export default function InnerCirclePage() {
 
       <footer className="border-t border-slate-100 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-slate-500">
-          © HERSALON | Inner Circle {new Date().getFullYear()} · כל הזכויות
-          שמורות.
+          © HERSALON {new Date().getFullYear()} · כל הזכויות שמורות.
         </div>
       </footer>
 
