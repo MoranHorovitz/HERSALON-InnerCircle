@@ -536,7 +536,7 @@ export default function InnerCirclePage() {
       "
             >
               <video
-                className="w-full h-full object-cover object-center rounded-xl lg:rounded-none"
+                className="w-full h-[600px] lg:h-full object-cover object-center"
                 controls
                 src="https://res.cloudinary.com/dordmerc0/video/upload/v1768924206/env_uinzb1.mp4"
                 muted
