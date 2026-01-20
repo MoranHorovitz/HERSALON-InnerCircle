@@ -394,13 +394,19 @@ export default function InnerCirclePage() {
       {/* Top bar */}
       <div className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-          <GlowCapture className="inline-block rounded-xl2" glowSize={240}>
+          <GlowCapture className="rounded-xl2" glowSize={240}>
             <button
               onClick={() => setOpen(true)}
-              className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn hover:opacity-95 transition"
+              className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn transition hidden lg:block hover:opacity-95"
             >
               הצטרפי לתכנית ההאצה של
               <span className="font-black"> HERSALON</span>
+            </button>
+            <button
+              onClick={() => setOpen(true)}
+              className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn transition lg:hidden"
+            >
+              הצטרפי עכשיו
             </button>
           </GlowCapture>
 
@@ -481,11 +487,11 @@ export default function InnerCirclePage() {
       </section>
 
       {/* WHAT'S INCLUDED */}
-      <section className="bg-[#252122] border-y text-slate-100 relative pr-14 pl-[500px]">
-        <div className="mx-auto px-2 pt-16 pb-4 text-center">
-          <div className="flex gap-4">
-            <div>
-              {" "}
+      <section className="bg-[#252122] border-y text-slate-100 relative lg:pr-32 lg:pl-[550px] px-4">
+        <div className="mx-auto pt-16 pb-4">
+          <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-start text-center lg:text-right">
+            {/* TEXT + IMAGES */}
+            <div className="w-full text-center">
               <Reveal>
                 <div className="text-4xl sm:text-5xl text-white font-extrabold">
                   צרי לעצמך קיצור דרך מטאורי למטרה!
@@ -496,7 +502,8 @@ export default function InnerCirclePage() {
                   חוויה שלא יצא לך לחוות באף הזדמנות אחרת בחיים.
                 </div>
               </Reveal>
-              <div className="relative mt-10 inline-flex flex-wrap justify-center text-right gap-2">
+
+              <div className="relative mt-10 inline-flex flex-wrap justify-center gap-2">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Reveal key={i} delay={i * 0.06}>
                     <GlowCapture
@@ -512,14 +519,24 @@ export default function InnerCirclePage() {
                     </GlowCapture>
                   </Reveal>
                 ))}
-              </div>{" "}
+              </div>
+
               <h6 className="text-white/60 text-[11px] p-2 w-full text-center">
                 *רשימת המנטורים עשויה להשתנות
               </h6>
             </div>
-            <div className="aspect-video bg-black/5 h-full w-[420px] absolute top-0 left-0">
+
+            {/* VIDEO */}
+            <div
+              className="
+        w-full aspect-video 
+        lg:absolute lg:top-0 lg:left-0 
+        lg:w-[410px] lg:h-full
+        bg-black/5
+      "
+            >
               <video
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-center rounded-xl lg:rounded-none"
                 controls
                 src="https://res.cloudinary.com/dordmerc0/video/upload/v1768924206/env_uinzb1.mp4"
                 muted
