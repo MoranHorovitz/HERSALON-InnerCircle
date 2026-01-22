@@ -179,9 +179,9 @@ function Modal({ open, onClose }: { open: boolean; onClose: () => void }) {
 export default function InnerCirclePage() {
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // }, []);
 
   const includeCards = useMemo(
     () => [
@@ -235,6 +235,253 @@ export default function InnerCirclePage() {
     []
   );
 
+  function AboutSection() {
+    return (
+      <section className="bg-neutral-50 py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Image */}
+          <div className="relative">
+            <img
+              src="me2.png"
+              alt="מורן הורוביץ"
+              className="rounded-3xl shadow-lg object-cover w-full h-full"
+            />
+          </div>
+
+          {/* Text */}
+          <div className="text-neutral-800">
+            <h2 className="text-4xl font-bold leading-tight mb-6">
+              אני מורן הורוביץ
+            </h2>
+
+            <p className="text-lg leading-relaxed mb-4">
+              מתכנתת, יזמת, ובשנים האחרונות מלווה נשים חכמות ומוכשרות להפוך ידע,
+              ניסיון ורעיונות —{" "}
+              <span className="font-semibold">לתוצרים שמכניסים כסף</span>.
+            </p>
+
+            <p className="text-lg leading-relaxed mb-4">
+              הקמתי את <span className="font-semibold">HerSalon</span> מתוך הבנה
+              פשוטה: נשים לא נתקעות מחוסר יכולת — הן נתקעות מחוסר מסגרת נכונה.
+            </p>
+
+            <p className="text-lg leading-relaxed mb-8">
+              הסלון הוא המקום שבו מפסיקים{" "}
+              <span className="italic">“להתלבט”</span>
+              ומתחילים <span className="font-semibold">לסיים</span>.
+            </p>
+
+            <button className="inline-flex items-center gap-2 bg-neutral-900 text-white px-6 py-3 rounded-full text-base font-medium hover:bg-neutral-800 transition">
+              רוצה להצטרף לסלון
+              <span className="text-xl">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  function AboutSectionAlt() {
+    return (
+      <section className="relative bg-[#0b1023] text-white overflow-hidden">
+        <div className="mx-auto max-w-6xl px-6 py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* IMAGE */}
+            <Reveal>
+              <div className="relative">
+                <div className="absolute -inset-4 rounded-3xl bg-brand/10 blur-2xl" />
+                <img
+                  src="/me.png"
+                  alt="מורן הורוביץ"
+                  className="relative z-10 w-full h-[520px] object-cover rounded-3xl shadow-soft"
+                />
+              </div>
+            </Reveal>
+
+            {/* TEXT */}
+            <div className="relative">
+              <Reveal>
+                <div className="text-sm tracking-wide text-brand font-semibold mb-4">
+                  נעים להכיר
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.05}>
+                <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+                  אני מורן הורוביץ
+                </h2>
+              </Reveal>
+
+              <Reveal delay={0.1}>
+                <p className="mt-6 text-lg text-white/85 leading-relaxed">
+                  מתכנתת, יזמת, ובשנים האחרונות מלווה נשים חכמות ומוכשרות להפוך
+                  ידע, ניסיון ורעיונות —
+                  <span className="text-white font-semibold">
+                    {" "}
+                    לתוצרים שמכניסים כסף.
+                  </span>
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.15}>
+                <p className="mt-5 text-lg text-white/75 leading-relaxed">
+                  הקמתי את <span className="font-semibold">HerSalon</span> מתוך
+                  הבנה פשוטה:
+                  <br />
+                  נשים לא נתקעות מחוסר יכולת —
+                  <span className="text-white font-semibold">
+                    {" "}
+                    הן נתקעות מחוסר מסגרת נכונה.
+                  </span>
+                </p>
+              </Reveal>
+
+              {/* QUOTE */}
+              <Reveal delay={0.2}>
+                <div className="mt-10 rounded-xl2 bg-white/5 border border-white/10 p-6 text-lg leading-relaxed">
+                  הסלון הוא המקום שבו מפסיקים
+                  <span className="italic"> “להתלבט” </span>
+                  ומתחילים
+                  <span className="font-semibold"> לסיים.</span>
+                </div>
+              </Reveal>
+
+              {/* CTA */}
+              <Reveal delay={0.25}>
+                <div className="mt-10">
+                  <GlowCapture
+                    className="inline-block rounded-[999px]"
+                    glowSize={260}
+                  >
+                    <button className="h-14 rounded-[999px] bg-brand px-10 text-white font-semibold shadow-btn hover:opacity-95 transition">
+                      לבקשת שיחת התאמה
+                    </button>
+                  </GlowCapture>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  function FitSection() {
+    const suitable = [
+      "אנשים עם רעיון שהם רוצים להפוך למוצר / שירות במציאות.",
+      "נשים עסוקות שרוצות הנחיה ברורה ופרקטית (לא עוד קורסים תיאורטיים).",
+      "מי שמוכנה להגיע למפגשים פיזיים ולעבוד באמת על תוצאות.",
+      "מי שרוצה לצאת עם נכס עובד — לא רק ״עוד השראה״.",
+    ];
+
+    const notSuitable = [
+      "מי שמחפשת רק השראה או שיעורים תיאורטיים.",
+      "אנשים שלא מוכנים להתחייב למפגשים שבועיים פיזיים.",
+      "מי שמחפשת פתרון מיידי ללא עבודה עצמית.",
+      "מי שמעדיפה לעשות לבד בלי מסגרת מגובשת.",
+    ];
+
+    return (
+      <section className="bg-neutral-50 py-20 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <Reveal>
+            <h2 className="text-4xl font-extrabold text-slate-900 mb-8">
+              למי התוכנית מתאימה ולמי לא
+            </h2>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-right">
+            {/* מתאים */}
+            <Reveal className="space-y-4">
+              <div className="text-2xl font-semibold text-brand mb-4">
+                ✔️ מי זה מתאים לו
+              </div>
+              <ul className="space-y-2 text-lg text-slate-700">
+                {suitable.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="text-brand font-bold">–</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            {/* לא מתאים */}
+            <Reveal className="space-y-4">
+              <div className="text-2xl font-semibold text-rose-600 mb-4">
+                ❌ מי זה *לא* מתאים לו
+              </div>
+              <ul className="space-y-2 text-lg text-slate-700">
+                {notSuitable.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="text-rose-600 font-bold">–</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  function AboutSectionEditorial() {
+    return (
+      <section className="bg-slate-100 p-32">
+        <div className="mx-auto max-w-6xl px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* IMAGE */}
+            <Reveal delay={0.05} className="lg:col-span-6 pr-10">
+              <div className="relative">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-3xl" />
+                  <img
+                    src="/me2.png"
+                    className="relative object-cover h-[420px]"
+                  />
+                </div>
+              </div>
+            </Reveal>
+            {/* TEXT */}
+            <Reveal className="lg:col-span-6 pl-32">
+              <h2 className="text-4xl font-extrabold text-brand leading-tight">
+                איך נוצר סלון היזמיות
+              </h2>
+
+              <div className="mt-3 space-y-4 text-md text-slate-600 leading-relaxed">
+                <p className="text-lg font-semibold leading-relaxed text-slate-900 mt-8">
+                  נעים להכיר, אני מורן הורוביץ
+                </p>
+                <p>
+                  מתכנתת, יזמת, ובשנים האחרונות מלווה נשים חכמות ומוכשרות להפוך
+                  ידע, ניסיון ורעיונות
+                  <div className="font-semibold text-slate-900">
+                    {" "}
+                    לתוצרים שמכניסים כסף.
+                  </div>
+                </p>
+
+                <p>
+                  הקמתי את <span className="font-semibold">HERSALON</span> מתוך
+                  הבנה פשוטה, נשים לא נתקעות בגלל חוסר יכולת
+                  <span className="font-semibold text-slate-900">
+                    {" "}
+                    הן נתקעות בגלל חוסר במסגרת נכונה.
+                  </span>
+                </p>
+              </div>
+
+              <div className="mt-10 text-slate-900 font-medium text-lg border-r-2 border-brand pr-5">
+                הסלון הוא המקום שבו מפסיקים להתלבט ומתחילים לסיים.
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   const outcomes = useMemo(
     () => [
       "יהיה לך מוצר / שירות / הצעה מוגדרת וברורה",
@@ -270,6 +517,26 @@ export default function InnerCirclePage() {
     ],
     []
   );
+
+  const yes = [
+    "יש לך רעיון (או כמה) שיושבים במגירה ואת מרגישה שהגיע הזמן להזיז",
+    "את אישה עסוקה (עבודה, חיים, עומס) ומחפשת מסגרת שגורמת לדברים לקרות",
+    "חשוב לך לייצר תוצאה מוחשית בעבודה מהירה",
+    "את פתוחה לחשיבה יצירתית, שימוש ב-AI וקיצורי דרך חכמים",
+    "את אוהבת לעבוד בקבוצה קטנה, אינטימית, בלי רעש ובלי אגו",
+    "את מחפשת חוויה שהיא גם עשייה, גם חיבור וגם פאן",
+    "את מסוגלת לשים בצד את שיטות העבודה שלמדת עד עכשיו ולבוא בראש פתוח",
+  ];
+
+  const no = [
+    "את מחפשת ידע תיאורטי או הרצאות ",
+    "את לא פנויה להתחייב לתהליך ולזמן עבודה אמיתי",
+    "מחוייבות להגעה לרמת גן לא מתאימה לך",
+    "את מחפשת מסגרת בקבוצה גדולה, כללית, בלי יחס אישי",
+    "את עוד לא מרגישה בשלה להזיז דברים לשלב הבא",
+    "את מחפשת סביבת עבודה משרדית רגילה",
+    "את עובדת יותר טוב בזום / אונליין ולא פיזית",
+  ];
 
   // ✅ Add this component somewhere above InnerCirclePage (same file)
   // (uses framer-motion already imported)
@@ -435,50 +702,70 @@ export default function InnerCirclePage() {
                 scrollRange={620}
               />
             </div>
-
             <div className="mt-2 text-2xl font-extralight text-black">
               8 שבועות · ספרינט אחד · מוצר באוויר
             </div>
-            <div className="mt-6 text-lg sm:text-xl text-slate-600 font-bold">
+            <div className="mt-8 mx-auto bg-brand/10 text-brand p-4 px-6 rounded-md w-fit text-lg sm:text-xl font-bold">
               תכנית האצה לנשים עסוקות שרוצות להפוך רעיון להכנסה אמיתית וגם להנות
               מהדרך
-            </div>
-            <p className="mt-8 text-md font-extralight leading-relaxed max-w-4xl mx-auto">
+            </div>{" "}
+            <div className="mt-10 max-w-3xl mx-auto space-y-6 text-slate-600 leading-relaxed text-center text-lg">
               הפכי את הרעיון במגירה למקור הכנסה נוסף עם השיטה שמשלבת כלים
-              מעולמות ההייטק והnlp ומביאה אותך לקו הסיום{" "}
-              <div className="text-brand font-semibold">
-                {" "}
+              <b className="px-1 rounded-md text-brand">
+                מעולמות ההייטק והnlp{" "}
+              </b>
+              ומביאה אותך לקו הסיום{" "}
+              <b className="bg-brand/10 px-1 rounded-md text-brand">
                 גם אם את עובדת במשרה מלאה
-              </div>
-            </p>
-            <div className="mt-10 max-w-3xl mx-auto space-y-6 text-slate-600 leading-relaxed px-6 text-center text-lg">
-              <p>
-                הבעיה שלך היא לא שחסרים לך רעיונות אלא
-                <b className="px-1">שיש לך יותר מדי מהם </b> <br />
-                את חכמה, מוכשרת, “מתקתקת” קריירה ובית. <br />
-                על הנייר, הכל מצוין.
-                <br />
-                אבל בראש? יש לך “מגירת חלומות” שרק הולכת ומתמלאת.
-              </p>
-              <p className="text-[16px] font-extralight ">
-                יש לך רעיון למיזם דיגיטלי, סדנה שרצית להעביר, מוצר שחשבת
-                לייצר... את יודעת שיש בזה פוטנציאל לכסף ולסיפוק, אבל איכשהו, בין
-                העבודה לחיים, את לא מגיעה לזה. את מתחילה בשיא האנרגיה ונתקעת
-                ברגע שזה נהיה מסובך, טכני או בודד.
-              </p>
-              <p className="text-[16px] font-extralight ">
-                וזה מייצר תסכול שקט. תחושה של החמצה. את רואה נשים אחרות (אולי
-                אפילו פחות מוכשרות ממך) משיקות דברים, ואת שואלת את עצמך: "למה
-                אני עדיין במקום?"{" "}
-              </p>
-              <p className="text-slate-900">
-                את לא צריכה עוד קורס תיאורטי. את לא צריכה “העצמה”. את צריכה
-                מישהי שתנעל איתך את הדלת, תפתח איתך לפטופ ותגיד:{" "}
-                <span className="text-brand font-semibold">
-                  “אנחנו לא יוצאות מפה עד שזה עובד.”
-                </span>
-              </p>
+              </b>
             </div>
+            <Reveal>
+              <div className="rounded-xl2 bg-white shadow-soft border border-slate-100 px-10 pb-10 max-w-3xl text-center mx-auto mt-8">
+                <div className="mt-10 max-w-3xl mx-auto space-y-6 text-slate-600 leading-relaxed text-center text-lg">
+                  <p>
+                    הבעיה שלך היא לא שחסרים לך רעיונות אלא
+                    <b className="px-1 rounded-md text-brand">
+                      שיש לך יותר מדי מהם{" "}
+                    </b>{" "}
+                    <br />
+                    את חכמה, מוכשרת, מתקתקת קריירה ובית <br />
+                    על הנייר הכל מצוין
+                    <br />
+                    אבל בראש? יש לך{" "}
+                    <b className="bg-brand/10 px-1 rounded-md text-brand">
+                      מגירת חלומות
+                    </b>{" "}
+                    שרק הולכת ומתמלאת
+                  </p>
+                  <p className="text-[16px] bg-brand/10 rounded-md px-10 w-full py-3 text-brand">
+                    יש לך רעיון ל
+                    <b>מיזם דיגיטלי, סדנה שרצית להעביר, מוצר שחשבת לייצר... </b>
+                    <br />
+                    את יודעת שיש בזה פוטנציאל לכסף ולסיפוק, אבל איכשהו, בין
+                    העבודה לחיים,
+                    <br /> את לא מגיעה לזה.
+                    <br />
+                    <b>את מתחילה בשיא האנרגיה </b>ונתקעת ברגע שזה נהיה מסובך,
+                    טכני או בודד.
+                  </p>
+                  <p className="text-[16px] font-extralight ">
+                    וזה מייצר תסכול שקט. תחושה של החמצה. את רואה נשים אחרות
+                    (אולי אפילו פחות מוכשרות ממך) משיקות דברים, ואת שואלת את
+                    עצמך{" "}
+                    <b className="bg-brand/10 px-1 rounded-md text-brand">
+                      למה אני עדיין במקום?
+                    </b>
+                  </p>
+                  <p className="text-slate-900">
+                    את לא צריכה עוד קורס תיאורטי. את לא צריכה "העצמה". את צריכה
+                    מישהי שתנעל איתך את הדלת, תפתח איתך לפטופ ותגיד:{" "}
+                    <span className="text-brand font-semibold">
+                      "אנחנו לא יוצאות מפה עד שזה עובד"
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </Reveal>
             <div className="mt-14 flex justify-center">
               <PrimaryCTA onClick={() => setOpen(true)} />
             </div>
@@ -558,7 +845,7 @@ export default function InnerCirclePage() {
               מה התכנית כוללת?
             </div>
             <div className="mt-4 text-slate-500">
-              בפועל, את מקבלת מעטפת מלאה לעשייה
+              בפועל את מקבלת מעטפת מלאה לעשייה
             </div>
           </Reveal>
 
@@ -578,7 +865,7 @@ export default function InnerCirclePage() {
                       {c.title}
                     </div>
                   </div>
-                  <div className="mt-3 text-slate-500 leading-relaxed">
+                  <div className="mt-3 text-slate-500 leading-relaxed text-right px-10">
                     {c.desc}
                   </div>
                 </GlowCapture>
@@ -588,6 +875,118 @@ export default function InnerCirclePage() {
         </div>
       </section>
 
+      {/* <FitSection /> */}
+
+      <section className="bg-gradient-to-b from-slate-50 to-slate-100 text-slate-800 pb-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <Reveal>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-4">
+              למי זה מתאים?
+            </h2>
+            <p className="text-center max-w-2xl mx-auto mb-6">
+              הסלון הוא לא עוד תכנית כללית. הוא מיועד לנשים מאוד מסוימות וזו
+              הסיבה שהוא עובד
+            </p>
+          </Reveal>
+
+          <div className="flex justify-center gap-6">
+            {/* לא מתאים */}
+            <Reveal delay={0.1}>
+              <div className="h-full rounded-3xl bg-red-800/5 w-[540px] p-10 pl-4">
+                <h3 className="text-2xl font-bold text-red-900">
+                  {" "}
+                  התכנית פחות מתאימה אם
+                </h3>
+                <div className="mt-6 space-y-5">
+                  {no.map((t, i) => (
+                    <motion.div
+                      key={t}
+                      className="flex items-start gap-4"
+                      initial={{ opacity: 0, x: 18 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.35 }}
+                      transition={{
+                        duration: 0.55,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: i * 0.06,
+                      }}
+                    >
+                      <div className="h-6 w-6 rounded-full bg-red-800/10 flex items-center justify-center text-red-800/90 font-bold">
+                        ✘
+                      </div>
+                      <div className="text-red-900/60">{t}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+            {/* מתאים */}
+            <Reveal>
+              <div className="h-full rounded-3xl bg-green-800/10 p-10 w-[540px] pl-4 border-2 border-green-800">
+                <h3 className="text-2xl font-bold text-green-800">
+                  התכנית מתאימה לך אם
+                </h3>
+                <div className="mt-6 space-y-5">
+                  {yes.map((t, i) => (
+                    <motion.div
+                      key={t}
+                      className="flex items-start gap-4"
+                      initial={{ opacity: 0, x: 18 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.35 }}
+                      transition={{
+                        duration: 0.55,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: i * 0.06,
+                      }}
+                    >
+                      <div className="min-h-6 min-w-6 w-6 h-6 rounded-full bg-green-800/30 flex items-center justify-center text-green-800/90 font-bold">
+                        ✓
+                      </div>
+                      <div className="text-[12px] text-green-800/90">{t}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* <Reveal delay={0.2}>
+            <p className="text-center text-lg font-semibold p-6 rounded-md mt-12 w-fit mx-auto">
+              אם קראת את הרשימה והרגשת שזה בדיוק את אז כנראה שהגעת למקום הנכון
+            </p>
+          </Reveal> */}
+        </div>
+      </section>
+
+      {/* <section className="bg-[#0b1023] text-white relative shadow-xl">
+        <div className="flex">
+          <Reveal>
+            <div className="overflow-hidden shadow-soft p-8">
+              <img
+                src="me.png"
+                alt=""
+                className="w-[700px] h-full object-contain"
+              />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.05}>
+            <div className="py-8 px-20">
+              <h2 className="mt-8 font-black w-full text-3xl">נעים להכיר</h2>
+              <div className="mt-8 font-extralight w-full text-2xl pl-20">
+                אני מורן הורוביץ. <br />
+                מתכנתת, יזמת, ובשנים האחרונות מלווה נשים חכמות ומוכשרות להפוך
+                ידע, ניסיון ורעיונות לתוצרים שמכניסים כסף. <br />
+                הקמתי את HerSalon מתוך הבנה פשוטה: נשים לא נתקעות מחוסר יכולת הן
+                נתקעות מחוסר מסגרת נכונה. הסלון הוא המקום שבו מפסיקים “להתלבט”
+                ומתחילים לסיים.
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section> */}
+
       {/* SPRINTS */}
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
@@ -596,7 +995,7 @@ export default function InnerCirclePage() {
               מיקוד לייזר + עבודה בספרינטים
             </div>
             <div className="mt-4 text-slate-500">
-              5 שלבים שמזיזים אותך מהר מ״רעיון״ ל״מוצר שעובד״
+              4 שלבים שמזיזים אותך מהר מ<b>רעיון</b> ל<b>מוצר שעובד</b>
             </div>
           </Reveal>
 
@@ -640,7 +1039,7 @@ export default function InnerCirclePage() {
                 <img
                   src="salon.png"
                   alt=""
-                  className="w-full h-[580px] object-cover mt-3"
+                  className="w-full h-[580px] object-cover mt-3 rounded-md"
                 />
               </div>
             </Reveal>
@@ -668,29 +1067,28 @@ export default function InnerCirclePage() {
                       delay: i * 0.06,
                     }}
                   >
-                    <div className="h-9 w-9 rounded-full bg-brand/20 border border-brand/30 flex items-center justify-center text-brand font-bold">
+                    <div className="h-9 w-9 rounded-full bg-brand/20 flex items-center justify-center text-brand font-bold">
                       ✓
                     </div>
-                    <div className="text-white/85">{t}</div>
+                    <div className="text-brand/50 font-black pt-1.5">{t}</div>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="mt-10 text-center rounded-xl2 bg-white/5 border border-white/10 p-6 text-white">
+              <div className="mt-10 text-center rounded-md bg-brand/20 p-6 text-white">
                 לא כולן יוצאות באותו שלב אבל אף אחת לא נשארת תקועה
               </div>
               <div className="mt-8 text-brand font-black text-center w-full text-3xl">
-                לא “יום אחד”, לא “כשיהיה זמן”{" "}
+                <div className="flex justify-between px-10 pb-4 text-white">
+                  <div>לא "יום אחד"</div>
+                  <div> לא "כשיהיה זמן"</div>
+                </div>
                 <div className="text-white text-5xl">עכשיו</div>
               </div>
             </Reveal>
           </div>
         </div>
       </section>
-
-      <div className="mt-10">
-        <FAQSection />
-      </div>
 
       {/* PRICING */}
       <section className="bg-slate-50">
@@ -726,7 +1124,7 @@ export default function InnerCirclePage() {
                 בקפידה
               </div>
 
-              <div className="mt-10 mx-auto bg-brand/5 border border-brand/10 p-6 text-brand font-semibold w-fit flex items-center justify-center gap-3">
+              <div className="mt-10 mx-auto bg-brand/5 rounded-md p-6 text-brand font-semibold w-fit flex items-center justify-center gap-3">
                 <span className="text-brand"></span>
                 ההרשמה מותנית בשיחת התאמה - אני מחפשת נשים שבאות לעבוד, לא רק
                 לחלום.
@@ -749,6 +1147,12 @@ export default function InnerCirclePage() {
           </Reveal>
         </div>
       </section>
+
+      <div className="mt-10">
+        <FAQSection />
+      </div>
+
+      <AboutSectionEditorial />
 
       <footer className="border-t border-slate-100 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-slate-500">
