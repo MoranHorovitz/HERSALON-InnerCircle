@@ -67,11 +67,14 @@ function Modal({ open, onClose }: { open: boolean; onClose: () => void }) {
     if (!canSubmit) return;
     setStatus("sending");
     try {
-      const res = await fetch("http://localhost:5175/api/apply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(s),
-      });
+      const res = await fetch(
+        "https://hersalon-leads.moran-horovitz.workers.dev/?key=H3754L0N",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(s),
+        }
+      );
       if (!res.ok) throw new Error("bad");
       setStatus("sent");
     } catch {
@@ -238,7 +241,7 @@ export default function InnerCirclePage() {
   function AboutSection() {
     return (
       <section className="bg-neutral-50 py-20 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 items-center">
           {/* Image */}
           <div className="relative">
             <img
@@ -390,7 +393,7 @@ export default function InnerCirclePage() {
             </h2>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-right">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 text-right">
             {/* מתאים */}
             <Reveal className="space-y-4">
               <div className="text-2xl font-semibold text-brand mb-4">
@@ -428,29 +431,29 @@ export default function InnerCirclePage() {
 
   function AboutSectionEditorial() {
     return (
-      <section className="bg-slate-100 p-32">
-        <div className="mx-auto max-w-6xl px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="bg-slate-100 p-10 lg:p-32">
+        <div className="mx-auto max-w-6xl lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
             {/* IMAGE */}
-            <Reveal delay={0.05} className="lg:col-span-6 pr-10">
+            <Reveal delay={0.05} className="lg:col-span-6 lg:pr-10">
               <div className="relative">
                 <div className="relative">
                   <div className="absolute inset-0 rounded-3xl" />
                   <img
                     src="/me2.png"
-                    className="relative object-cover h-[420px]"
+                    className="relative object-cover lg:h-[420px]"
                   />
                 </div>
               </div>
             </Reveal>
             {/* TEXT */}
-            <Reveal className="lg:col-span-6 pl-32">
-              <h2 className="text-4xl font-extrabold text-brand leading-tight">
+            <Reveal className="lg:col-span-6 lg:pl-32">
+              <h2 className="text-4xl font-extrabold text-brand leading-tight text-center lg:text-right">
                 איך נוצר סלון היזמיות
               </h2>
 
-              <div className="mt-3 space-y-4 text-md text-slate-600 leading-relaxed">
-                <p className="text-lg font-semibold leading-relaxed text-slate-900 mt-8">
+              <div className="lg:mt-3 space-y-4 text-md text-slate-600 leading-relaxed text-center lg:text-right">
+                <p className="text-lg font-semibold leading-relaxed text-slate-900 mt-3 lg:mt-8">
                   נעים להכיר, אני מורן הורוביץ
                 </p>
                 <p>
@@ -657,7 +660,7 @@ export default function InnerCirclePage() {
   }
 
   return (
-    <div dir="rtl" className="min-h-screen bg-white text-slate-900">
+    <div dir="rtl" className="h-screen bg-white text-slate-900 overflow-y-auto">
       {/* Top bar */}
       <div className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
@@ -853,7 +856,7 @@ export default function InnerCirclePage() {
             {includeCards.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.06}>
                 <GlowCapture
-                  className="rounded-xl2 bg-white border border-slate-100 shadow-soft p-8 h-44"
+                  className="rounded-xl2 bg-white border border-slate-100 shadow-soft p-6 lg:p-8 h-44"
                   glowColor="rgba(91,79,228,0.45)"
                   glowSize={260}
                 >
@@ -861,11 +864,11 @@ export default function InnerCirclePage() {
                     <div className="h-8 w-8 rounded-xl2 bg-brand/10 flex items-center justify-center text-brand text-xl">
                       {c.icon}
                     </div>
-                    <div className="text-lg text-brand flex-nowrap font-bold">
+                    <div className="text-md lg:text-lg text-brand flex-nowrap font-bold">
                       {c.title}
                     </div>
                   </div>
-                  <div className="mt-3 text-slate-500 leading-relaxed text-right px-10">
+                  <div className="lg:mt-3 text-slate-500 leading-relaxed text-right pr-10 pl-4 text-sm lg:text-base">
                     {c.desc}
                   </div>
                 </GlowCapture>
@@ -889,10 +892,10 @@ export default function InnerCirclePage() {
             </p>
           </Reveal>
 
-          <div className="flex justify-center gap-6">
+          <div className="flex flex-col lg:flex-row justify-center gap-6">
             {/* לא מתאים */}
             <Reveal delay={0.1}>
-              <div className="h-full rounded-3xl bg-red-800/5 w-[540px] p-10 pl-4">
+              <div className="h-full rounded-3xl bg-red-800/5 w-full lg:w-[540px] p-10 pl-4">
                 <h3 className="text-2xl font-bold text-red-900">
                   {" "}
                   התכנית פחות מתאימה אם
@@ -914,7 +917,7 @@ export default function InnerCirclePage() {
                       <div className="h-6 w-6 rounded-full bg-red-800/10 flex items-center justify-center text-red-800/90 font-bold">
                         ✘
                       </div>
-                      <div className="text-red-900/60">{t}</div>
+                      <div className="text-[12px] text-red-900/60">{t}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -922,7 +925,7 @@ export default function InnerCirclePage() {
             </Reveal>
             {/* מתאים */}
             <Reveal>
-              <div className="h-full rounded-3xl bg-green-800/10 p-10 w-[540px] pl-4 border-2 border-green-800">
+              <div className="h-full rounded-3xl bg-green-800/10 p-10 w-full lg:w-[540px] pl-4 border-2 border-green-800">
                 <h3 className="text-2xl font-bold text-green-800">
                   התכנית מתאימה לך אם
                 </h3>
@@ -1003,7 +1006,7 @@ export default function InnerCirclePage() {
             {sprintSteps.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.06}>
                 <GlowCapture
-                  className="rounded-xl2 bg-white border border-slate-100 shadow-soft p-8 h-44"
+                  className="rounded-xl2 bg-white border border-slate-100 shadow-soft p-6 lg:p-8 h-44"
                   glowColor="rgba(91,79,228,0.35)"
                   glowSize={240}
                 >
@@ -1011,11 +1014,11 @@ export default function InnerCirclePage() {
                     <div className="h-8 w-8 rounded-xl2 bg-brand/10 flex items-center justify-center text-brand text-xl">
                       {c.icon}
                     </div>
-                    <div className="text-lg text-brand flex-nowrap font-bold">
+                    <div className="text-md lg:text-lg text-brand flex-nowrap font-bold">
                       {c.title}
                     </div>
                   </div>
-                  <div className="mt-2 text-slate-500 leading-relaxed">
+                  <div className="lg:mt-3 text-slate-500 leading-relaxed text-right pr-10 pl-4 text-sm lg:text-base">
                     {c.desc}
                   </div>
                 </GlowCapture>
@@ -1079,7 +1082,7 @@ export default function InnerCirclePage() {
                 לא כולן יוצאות באותו שלב אבל אף אחת לא נשארת תקועה
               </div>
               <div className="mt-8 text-brand font-black text-center w-full text-3xl">
-                <div className="flex justify-between px-10 pb-4 text-white">
+                <div className="flex justify-between lg:px-10 pb-4 text-white text-lg lg:text-3xl">
                   <div>לא "יום אחד"</div>
                   <div> לא "כשיהיה זמן"</div>
                 </div>
@@ -1148,9 +1151,11 @@ export default function InnerCirclePage() {
         </div>
       </section>
 
-      <div className="mt-10">
-        <FAQSection />
-      </div>
+      <section>
+        <div className="mx-auto max-w-6xl px-6">
+          <FAQSection />
+        </div>
+      </section>
 
       <AboutSectionEditorial />
 
