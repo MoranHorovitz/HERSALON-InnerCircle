@@ -431,7 +431,7 @@ export default function InnerCirclePage() {
 
   function AboutSectionEditorial() {
     return (
-      <section className="bg-slate-100 p-10 lg:p-32">
+      <section id="about" className="bg-slate-100 p-10 lg:p-32">
         <div className="mx-auto max-w-6xl lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
             {/* IMAGE */}
@@ -660,26 +660,38 @@ export default function InnerCirclePage() {
   }
 
   return (
-    <div dir="rtl" className="h-screen bg-white text-slate-900 overflow-y-auto">
+    <div
+      dir="rtl"
+      className="h-screen bg-white text-slate-900 overflow-y-auto scroll-smooth"
+    >
       {/* Top bar */}
       <div className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-          <GlowCapture className="rounded-xl2" glowSize={240}>
-            <button
-              onClick={() => setOpen(true)}
-              className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn transition hidden lg:block hover:opacity-95"
-            >
-              הצטרפי לתכנית ההאצה של
-              <span className="font-black"> HERSALON</span>
-            </button>
-            <button
-              onClick={() => setOpen(true)}
-              className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn transition lg:hidden"
-            >
-              הצטרפי עכשיו
-            </button>
-          </GlowCapture>
+          <div className="flex gap-8">
+            <GlowCapture className="rounded-xl2" glowSize={240}>
+              <button
+                onClick={() => setOpen(true)}
+                className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn transition hidden lg:block hover:opacity-95"
+              >
+                הצטרפי לתכנית ההאצה של
+                <span className="font-black"> HERSALON</span>
+              </button>
+              <button
+                onClick={() => setOpen(true)}
+                className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn transition lg:hidden"
+              >
+                הצטרפי עכשיו
+              </button>
+            </GlowCapture>
 
+            <div className="text-xl font-bold flex gap-1 items-center justify-center flex-row-reverse">
+              <div className="text-sm text-brand/70 hover:text-brand">
+                <a href="#about" className="cursor-pointer">
+                  על הסלון
+                </a>
+              </div>
+            </div>
+          </div>
           <div className="text-xl font-bold flex gap-1 items-center justify-center flex-row-reverse">
             <div className="font-black text-brand">HERSALON</div>
             {/* <div className="font-extralight mt-[-4px]">|</div>
@@ -828,7 +840,7 @@ export default function InnerCirclePage() {
               <video
                 className="w-full h-[600px] lg:h-full object-cover object-center"
                 controls
-                src="https://res.cloudinary.com/dordmerc0/video/upload/v1768924206/env_uinzb1.mp4"
+                src="https://res.cloudinary.com/dordmerc0/video/upload/v1769278421/riverside_copy_of_avira___jan_20_2026_001_moran_horovitz_s_st_2_weec5h.mp4"
                 muted
                 autoPlay
                 loop
