@@ -667,7 +667,7 @@ export default function InnerCirclePage() {
       {/* Top bar */}
       <div className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-          <div className="flex gap-8">
+          <div className="flex gap-2 lg:gap-8">
             <GlowCapture className="rounded-xl2" glowSize={240}>
               <button
                 onClick={() => setOpen(true)}
@@ -702,11 +702,11 @@ export default function InnerCirclePage() {
 
       {/* HERO */}
       <section className="relative">
-        <div className="mx-auto max-w-6xl px-6 pt-28 pb-24 text-center">
+        <div className="mx-auto max-w-6xl px-6 pt-10 md:pt-28 pb-24 text-center">
           <Reveal>
             <HeroTextWithDepthShadow
               text="HERSALON"
-              className="text-6xl sm:text-7xl font-black text-brand"
+              className="text-5xl md:text-7xl font-black text-brand"
               shadowColorClass="text-brand"
             />
             <div className="">
@@ -717,14 +717,14 @@ export default function InnerCirclePage() {
                 scrollRange={620}
               />
             </div>
-            <div className="mt-2 text-2xl font-extralight text-black">
+            <div className="mt-2 text-xl md:text-2xl font-extralight text-black">
               8 שבועות · ספרינט אחד · מוצר באוויר
             </div>
-            <div className="mt-8 mx-auto bg-brand/10 text-brand p-4 px-6 rounded-md w-fit text-lg sm:text-xl font-bold">
+            <div className="mt-4 lg:mt-8 mx-auto bg-brand/10 text-brand p-4 px-6 rounded-md w-fit text-lg lg:text-xl font-bold">
               תכנית האצה לנשים עסוקות שרוצות להפוך רעיון להכנסה אמיתית וגם להנות
               מהדרך
             </div>{" "}
-            <div className="mt-10 max-w-3xl mx-auto space-y-6 text-slate-600 leading-relaxed text-center text-lg">
+            <div className="mt-4 lg:mt-10 max-w-3xl mx-auto space-y-6 text-slate-600 leading-relaxed text-center text-md lg:text-lg">
               הפכי את הרעיון במגירה למקור הכנסה נוסף עם השיטה שמשלבת כלים
               <b className="px-1 rounded-md text-brand">
                 מעולמות ההייטק והnlp{" "}
@@ -733,10 +733,16 @@ export default function InnerCirclePage() {
               <b className="bg-brand/10 px-1 rounded-md text-brand">
                 גם אם את עובדת במשרה מלאה
               </b>
+              <button
+                onClick={() => setOpen(true)}
+                className="h-10 rounded-xl2 bg-brand px-5 text-sm font-semibold text-white shadow-btn transition lg:hidden"
+              >
+                לשיחת התאמה ללא עלות לחצי כאן
+              </button>
             </div>
             <Reveal>
               <div className="rounded-xl2 bg-white shadow-soft border border-slate-100 px-10 pb-10 max-w-3xl text-center mx-auto mt-8">
-                <div className="mt-10 max-w-3xl mx-auto space-y-6 text-slate-600 leading-relaxed text-center text-lg">
+                <div className="mt-6 lg:mt-10 max-w-3xl mx-auto space-y-6 text-slate-600 leading-relaxed text-center text-sm lg:text-lg">
                   <p>
                     הבעיה שלך היא לא שחסרים לך רעיונות אלא
                     <b className="px-1 rounded-md text-brand">
@@ -792,13 +798,33 @@ export default function InnerCirclePage() {
       <section className="bg-[#252122] border-y text-slate-100 relative lg:pr-32 lg:pl-[550px] px-4">
         <div className="mx-auto pt-16 pb-4">
           <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-start text-center lg:text-right">
+            {/* VIDEO */}
+            <div
+              className="
+        w-full aspect-video 
+        lg:absolute lg:top-0 lg:left-0 
+        lg:w-[410px] lg:h-full
+        bg-black/5
+      "
+            >
+              <video
+                className="w-full h-[600px] lg:h-full object-cover object-center"
+                controls
+                src="https://res.cloudinary.com/dordmerc0/video/upload/v1769514814/riverside_copy_of_avira___jan_20_2026_001_moran_horovitz_s_st_5_baln1f.mp4"
+                muted
+                autoPlay
+                loop
+                playsInline
+                preload="metadata"
+              />
+            </div>
             {/* TEXT + IMAGES */}
             <div className="w-full text-center">
               <Reveal>
                 <div className="text-4xl sm:text-5xl text-white font-extrabold">
                   צרי לעצמך קיצור דרך מטאורי למטרה!
                 </div>
-                <div className="mt-6 text-slate-100">
+                <div className="mt-6 text-slate-100 text-sm lg:text-md">
                   בעזרת מנטורים מהשורה הראשונה שכבר הגשימו יעדים משוגעים ובאים
                   לעבוד איתך בסלון! לא על במה! <br />
                   חוויה שלא יצא לך לחוות באף הזדמנות אחרת בחיים.
@@ -827,33 +853,12 @@ export default function InnerCirclePage() {
                 *רשימת המנטורים עשויה להשתנות
               </h6>
             </div>
-
-            {/* VIDEO */}
-            <div
-              className="
-        w-full aspect-video 
-        lg:absolute lg:top-0 lg:left-0 
-        lg:w-[410px] lg:h-full
-        bg-black/5
-      "
-            >
-              <video
-                className="w-full h-[600px] lg:h-full object-cover object-center"
-                controls
-                src="https://res.cloudinary.com/dordmerc0/video/upload/v1769278421/riverside_copy_of_avira___jan_20_2026_001_moran_horovitz_s_st_2_weec5h.mp4"
-                muted
-                autoPlay
-                loop
-                playsInline
-                preload="metadata"
-              />
-            </div>
           </div>
         </div>
       </section>
 
       {/* WHAT'S INCLUDED */}
-      <section className="bg-slate-50 border-y border-slate-100">
+      <section className="bg-slate-50">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
           <Reveal>
             <div className="text-4xl sm:text-5xl font-extrabold">
@@ -905,6 +910,35 @@ export default function InnerCirclePage() {
           </Reveal>
 
           <div className="flex flex-col lg:flex-row justify-center gap-6">
+            {/* מתאים */}
+            <Reveal>
+              <div className="h-full rounded-3xl bg-green-800/10 p-10 w-full lg:w-[540px] pl-4 border-2 border-green-800">
+                <h3 className="text-2xl font-bold text-green-800">
+                  התכנית מתאימה לך אם
+                </h3>
+                <div className="mt-6 space-y-5">
+                  {yes.map((t, i) => (
+                    <motion.div
+                      key={t}
+                      className="flex items-start gap-4"
+                      initial={{ opacity: 0, x: 18 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.35 }}
+                      transition={{
+                        duration: 0.55,
+                        ease: [0.22, 1, 0.36, 1],
+                        delay: i * 0.06,
+                      }}
+                    >
+                      <div className="min-h-6 min-w-6 w-6 h-6 rounded-full bg-green-800/30 flex items-center justify-center text-green-800/90 font-bold">
+                        ✓
+                      </div>
+                      <div className="text-[12px] text-green-800/90">{t}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
             {/* לא מתאים */}
             <Reveal delay={0.1}>
               <div className="h-full rounded-3xl bg-red-800/5 w-full lg:w-[540px] p-10 pl-4">
@@ -930,35 +964,6 @@ export default function InnerCirclePage() {
                         ✘
                       </div>
                       <div className="text-[12px] text-red-900/60">{t}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-            {/* מתאים */}
-            <Reveal>
-              <div className="h-full rounded-3xl bg-green-800/10 p-10 w-full lg:w-[540px] pl-4 border-2 border-green-800">
-                <h3 className="text-2xl font-bold text-green-800">
-                  התכנית מתאימה לך אם
-                </h3>
-                <div className="mt-6 space-y-5">
-                  {yes.map((t, i) => (
-                    <motion.div
-                      key={t}
-                      className="flex items-start gap-4"
-                      initial={{ opacity: 0, x: 18 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, amount: 0.35 }}
-                      transition={{
-                        duration: 0.55,
-                        ease: [0.22, 1, 0.36, 1],
-                        delay: i * 0.06,
-                      }}
-                    >
-                      <div className="min-h-6 min-w-6 w-6 h-6 rounded-full bg-green-800/30 flex items-center justify-center text-green-800/90 font-bold">
-                        ✓
-                      </div>
-                      <div className="text-[12px] text-green-800/90">{t}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -1082,10 +1087,10 @@ export default function InnerCirclePage() {
                       delay: i * 0.06,
                     }}
                   >
-                    <div className="h-9 w-9 rounded-full bg-brand/20 flex items-center justify-center text-brand font-bold">
+                    <div className="h-9 w-9 !min-h-9 !min-w-9 rounded-full bg-brand/20 flex items-center justify-center text-brand font-bold">
                       ✓
                     </div>
-                    <div className="text-brand/50 font-black pt-1.5">{t}</div>
+                    <div className="text-white pt-1.5">{t}</div>
                   </motion.div>
                 ))}
               </div>
@@ -1094,11 +1099,11 @@ export default function InnerCirclePage() {
                 לא כולן יוצאות באותו שלב אבל אף אחת לא נשארת תקועה
               </div>
               <div className="mt-8 text-brand font-black text-center w-full text-3xl">
-                <div className="flex justify-between lg:px-10 pb-4 text-white text-lg lg:text-3xl">
+                <div className="flex justify-between lg:px-10 pb-4 text-brand/60 text-lg lg:text-3xl">
                   <div>לא "יום אחד"</div>
                   <div> לא "כשיהיה זמן"</div>
                 </div>
-                <div className="text-white text-5xl">עכשיו</div>
+                <div className="text-brand/60 text-5xl">עכשיו</div>
               </div>
             </Reveal>
           </div>
@@ -1139,24 +1144,26 @@ export default function InnerCirclePage() {
                 בקפידה
               </div>
 
-              <div className="mt-10 mx-auto bg-brand/5 rounded-md p-6 text-brand font-semibold w-fit flex items-center justify-center gap-3">
-                <span className="text-brand"></span>
-                ההרשמה מותנית בשיחת התאמה - אני מחפשת נשים שבאות לעבוד, לא רק
-                לחלום.
-              </div>
+              <div className="w-fit mx-auto">
+                <div className="mt-10 mx-auto bg-brand/5 rounded-md p-6 text-brand font-semibold w-fit flex items-center justify-center gap-3">
+                  <span className="text-brand"></span>
+                  ההרשמה מותנית בשיחת התאמה - אני מחפשת נשים שבאות לעבוד, לא רק
+                  לחלום.
+                </div>
 
-              <div className="mt-10 flex justify-center">
-                <GlowCapture
-                  className="inline-block rounded-xl2"
-                  glowSize={320}
-                >
-                  <button
-                    onClick={() => setOpen(true)}
-                    className="h-16 rounded-xl2 bg-brand px-12 text-white font-semibold shadow-btn hover:opacity-95 transition"
+                <div className="mt-10 flex justify-center w-full">
+                  <GlowCapture
+                    className="inline-block rounded-xl2 w-full"
+                    glowSize={320}
                   >
-                    לבקשת שיחת התאמה
-                  </button>
-                </GlowCapture>
+                    <button
+                      onClick={() => setOpen(true)}
+                      className="h-14 rounded-full bg-brand px-4 w-full text-white font-semibold shadow-btn hover:opacity-95 transition"
+                    >
+                      לבקשת שיחת התאמה
+                    </button>
+                  </GlowCapture>
+                </div>
               </div>
             </div>
           </Reveal>
