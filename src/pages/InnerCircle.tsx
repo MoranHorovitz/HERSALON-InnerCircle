@@ -485,6 +485,14 @@ export default function InnerCirclePage() {
     );
   }
 
+  const mentors = [
+    "פיצוח אישי לכל אחת בשיטת ׳עסק ללא מתחרים׳ של צביקה!",
+    "סדנה מעשית להשקה נכונה של המוצר שלך!",
+    "פגישה 1 על 1 עם יהודית להתגברות על חסמים מנטליים!!",
+    "איב תעשה לנו סושיאל שמח ותוציא כל אחת עם חומרים מוכנים לפרסום!",
+    "פיצוח קהל היעד והגדרת המוצר המדוייקת שלך!",
+  ];
+
   const outcomes = useMemo(
     () => [
       "יהיה לך מוצר / שירות / הצעה מוגדרת וברורה",
@@ -831,19 +839,22 @@ export default function InnerCirclePage() {
                 </div>
               </Reveal>
 
-              <div className="relative mt-10 inline-flex flex-wrap justify-center gap-2">
+              <div className="relative mt-10 inline-flex flex-wrap justify-center gap-2 w-full">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Reveal key={i} delay={i * 0.06}>
                     <GlowCapture
-                      className="border border-r-2 border-t-2 border-white rounded-2xl shadow-soft"
+                      className="border border-r-2 border-t-2 border-white rounded-2xl shadow-soft w-[260px] max-w-full h-[270px]"
                       glowColor="rgba(91,79,228,0.45)"
                       glowSize={260}
                     >
                       <img
                         src={`mentors/m${i}.png`}
                         alt=""
-                        className="w-full h-[200px] object-cover rounded-2xl border-4 border-[#252122]"
+                        className="w-full h-[220px] object-cover rounded-2xl border-4 border-[#252122] object-top"
                       />
+                      <div className="px-8 py-1.5 text-[11px] font-black">
+                        {mentors[i - 1]}
+                      </div>
                     </GlowCapture>
                   </Reveal>
                 ))}
