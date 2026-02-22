@@ -206,7 +206,7 @@ export default function InnerCirclePage() {
       {
         icon: "✦",
         title: "קבוצה מגובשת שמחזיקה אותך",
-        desc: "עד X משתתפות. נשים שבאות לעבוד. יחד זה קל יותר - ומתקדם מהר יותר.",
+        desc: "עד 8 משתתפות. נשים שבאות לעבוד. יחד זה קל יותר - ומתקדם מהר יותר.",
       },
     ],
     []
@@ -232,7 +232,7 @@ export default function InnerCirclePage() {
       {
         icon: "✦",
         title: "קבוצה מגובשת שמחזיקה אותך",
-        desc: "עד X משתתפות. נשים שבאות לעבוד. יחד זה קל יותר - ומתקדם מהר יותר.",
+        desc: "עד 8 משתתפות. נשים שבאות לעבוד. יחד זה קל יותר - ומתקדם מהר יותר.",
       },
     ],
     []
@@ -429,6 +429,300 @@ export default function InnerCirclePage() {
     );
   }
 
+  // SYLLABUS (8 sessions) – inserted as a dedicated section
+  function SyllabusSection() {
+    const dates = [
+      "26.4",
+      "3.5",
+      "10.5",
+      "17.5",
+      "24.5",
+      "31.5",
+      "7.6",
+      "14.6",
+    ];
+
+    const sessions = [
+      {
+        n: 1,
+        date: "26/4",
+        title: "בחירה, פוקוס והתחייבות",
+        goal: "לסגור החלטה אחת ברורה: על איזה מוצר/מיזם את עובדת ב־8 השבועות הקרובים ומה נחשב הצלחה מדידה.",
+        doing: [
+          "רידוד אכזרי של רעיונות: מפרקות רעיון גדול למוצר קטן שאפשר להוציא עכשיו",
+          "בחירה מחייבת + ויתור מודע על רעיונות אחרים (כרגע)",
+          "הגדרת יעד קונקרטי לסוף התהליך + אבני דרך",
+          "תרגום היעד למשימות ראשונות (כולל מה קורה כבר השבוע)",
+          "התחייבות פומבית: הצהרה בקול על המוצר והצעד הראשון",
+        ],
+        out: [
+          "מוצר אחד ברור",
+          "יעד חד לסוף האקסלרטור",
+          "תכנית פעולה ראשונית",
+          "שקט מנטלי מהתפזרות",
+        ],
+      },
+      {
+        n: 2,
+        date: "3/5",
+        title: "הקאתון #1 – יציאה לביצוע וגרסה ראשונה",
+        goal: "להפוך את ההחלטה למשהו מוחשי שקיים בעולם: גרסה ראשונה של המוצר/הפיילוט/ההצעה.",
+        doing: [
+          "עבודה אינטנסיבית על המוצר בפועל",
+          "יצירת גרסה ראשונה (גם אם גולמית)",
+          "פיצוח חסמים בזמן אמת",
+          "יציאה ראשונה החוצה: פוסט / לינק / דמו / הצעה",
+        ],
+        out: [
+          "תוצר ממשי ראשון",
+          "מומנטום לעשייה רציפה",
+          "הבנה מה עובד ומה דורש תיקון",
+        ],
+      },
+      {
+        n: 3,
+        date: "10/5",
+        title: "פיצוח תקיעות וחידוד עם רן סיבוני",
+        goal: "להתמודד עם האתגרים שעלו בביצוע, ולחדד מוצר/הצעה/כיוון כדי להחזיר קצב ולנוע קדימה.",
+        doing: [
+          "הצגת גרסאות ראשונות ואתגרים מהשטח",
+          "פיצוח בעיות בזמן אמת עם מנטור מנוסה",
+          "חידוד קהל, ערך והצעה",
+          "קבלת החלטות שמאפשרות המשך ביצוע",
+        ],
+        out: [
+          "כיוון מדויק יותר",
+          "פתרון לחסמים משמעותיים",
+          "תכנית פעולה לשלב הבא",
+        ],
+      },
+      {
+        n: 4,
+        date: "17/5",
+        title: "מאסטרמיינד ביצועי וקפיצת דרך",
+        goal: "להשתמש בחשיבה הקולקטיבית של הקבוצה כדי לפתור חסמים אמיתיים, לקצר תהליכים ולהאיץ קצב.",
+        doing: [
+          "מאסטרמיינד עמוק על אתגרים נבחרים",
+          "פתרונות פרקטיים וקיצורי דרך",
+          "הטמעה מיידית של החלטות בעבודה",
+        ],
+        out: [
+          "פתרונות שלא היו עולים לבד",
+          "בהירות מחודשת והקלה מנטלית",
+          "התקדמות משמעותית בביצוע",
+        ],
+      },
+      {
+        n: 5,
+        date: "24/5",
+        title: "חשיפה ראשונה + פידבק אמיתי מקהל היעד",
+        goal: "לצאת לחשיפה גם כשהמוצר לא מושלם, לקבל פידבק יזום, ולבצע החלטות חדות שמקדמות אותך.",
+        doing: [
+          "ניסוח מסר ראשוני וברור",
+          "בניית פנייה לפידבק (לא פוסט ‘אני מתרגשת לשתף’)",
+          "שליחה/פרסום בפועל בתוך המפגש",
+          "פיצוח דפוסים בפידבק: להפריד בין רעש לאות",
+          "עדכון מיידי של המסר/הצעה/פנייה",
+        ],
+        out: [
+          "מנגנון ברור לאיסוף פידבק",
+          "עלייה במחויבות",
+          "חיבור ראשוני לקהל יעד רלוונטי",
+        ],
+      },
+      {
+        n: 6,
+        date: "31/5",
+        title: "הקאתון מתקדם – שיפור על בסיס פידבק",
+        goal: "לתרגם פידבק אמיתי לשינויים קונקרטיים במוצר וליישם אותם בפועל במסגרת האקתון ממוקד.",
+        doing: [
+          "הגעה עם פידבק משיחות אמיתיות (לא חברים/משפחה)",
+          "קבלת החלטות מהירות: שינוי ניסוח/הצעה/קהל/כיוון",
+          "עבודה שקטה ואינטנסיבית: הטמעה מיידית של השינויים",
+        ],
+        out: [
+          "גרסה משופרת של המוצר/ההצעה",
+          "בהירות לגבי מה עובד ומה צריך שינוי",
+          "צעד בדיקה ברור לשבוע הבא",
+        ],
+      },
+      {
+        n: 7,
+        date: "7/6",
+        title: "פיצוח עומק עם צביקה עינב – מה באמת עוצר עכשיו",
+        goal: "לזהות ולפצח את צוואר הבקבוק האמיתי שמונע מהמיזם להתקדם (מוצר/מסר/שיווק/מכירה/מיינדסט).",
+        doing: [
+          "פיצוח אישי לכל משתתפת מול הקבוצה",
+          "זיהוי מדויק של מה באמת עוצר",
+          "הפרדה בין בעיות טכניות לחסמים מנטליים",
+          "תרגום הפיצוח לפעולה אחת ברורה שאי אפשר להתחמק ממנה",
+        ],
+        out: [
+          "בהירות עמוקה לגבי צוואר הבקבוק",
+          "שחרור חסם משמעותי",
+          "פעולות ישימות לצליחת השלב הבא",
+        ],
+      },
+      {
+        n: 8,
+        date: "14/6",
+        title: "סגירה, עיגון והמשך הדרך",
+        goal: "לעגן את הזהות היזמית שנבנתה ולהגדיר תכנית המשך ברורה שתשמור על קצב גם אחרי הסיום.",
+        doing: [
+          "מיפוי נקודת המצב הנוכחית",
+          "זיהוי דפוסים חדשים ודפוסים לשימור",
+          "בניית תכנית המשך אישית ומצומצמת",
+          "התחייבות פומבית לצעדים הבאים",
+        ],
+        out: [
+          "סגירה אמיתית (לא ‘נפילה לריק’) ",
+          "בהירות לגבי ההמשך",
+          "ביטחון להמשיך לבד",
+        ],
+      },
+    ] as const;
+
+    const [openIdx, setOpenIdx] = useState<number | null>(0);
+
+    return (
+      <section id="syllabus" className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <Reveal>
+            <div className="text-center">
+              <div className="text-4xl sm:text-5xl font-extrabold">
+                הסילבוס: 8 שבועות שמייצרים תנועה
+              </div>
+              <div className="mt-4 text-slate-600 max-w-3xl mx-auto">
+                זה לא קורס. זה מסלול ביצוע. כל שבוע מסתיים בהתקדמות מוחשית.
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-12">
+              <div className="mt-2 space-y-3">
+                {sessions.map((s, i) => {
+                  const isOpen = openIdx === i;
+                  const panelId = `syllabus-panel-${i}`;
+                  const btnId = `syllabus-btn-${i}`;
+
+                  return (
+                    <Reveal key={s.n} delay={i * 0.03}>
+                      <div className="rounded-3xl border border-slate-100 shadow-soft bg-white overflow-hidden">
+                        <button
+                          id={btnId}
+                          type="button"
+                          aria-expanded={isOpen}
+                          aria-controls={panelId}
+                          onClick={() => setOpenIdx(isOpen ? null : i)}
+                          className="w-full px-6 py-5 flex items-center justify-between gap-4 text-right"
+                        >
+                          <div className="flex items-center gap-4">
+                            <div className="h-10 w-20 rounded-2xl bg-brand/10 text-brand font-black flex items-center justify-center">
+                              {s.date}
+                            </div>
+                            <div>
+                              <div className="font-extrabold text-slate-900">
+                                מפגש {s.n}: {s.title}
+                              </div>
+                              <div className="mt-1 text-sm text-slate-500">
+                                {s.goal}
+                              </div>
+                            </div>
+                          </div>
+
+                          <motion.div
+                            animate={{ rotate: isOpen ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="shrink-0 h-9 w-9 rounded-2xl bg-brand/10 text-brand flex items-center justify-center"
+                          >
+                            ▾
+                          </motion.div>
+                        </button>
+
+                        <AnimatePresence initial={false}>
+                          {isOpen && (
+                            <motion.div
+                              id={panelId}
+                              role="region"
+                              aria-labelledby={btnId}
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{
+                                duration: 0.28,
+                                ease: [0.22, 1, 0.36, 1],
+                              }}
+                              className="px-6"
+                            >
+                              <div className="pb-6 pt-1 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                <div className="rounded-2xl bg-slate-50 border border-slate-100 p-5">
+                                  <div className="text-sm font-bold text-slate-900">
+                                    מה קורה במפגש בפועל
+                                  </div>
+                                  <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                                    {s.doing.map((t) => (
+                                      <li
+                                        key={t}
+                                        className="flex items-start gap-2"
+                                      >
+                                        <span className="text-brand font-black">
+                                          •
+                                        </span>
+                                        <span>{t}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+
+                                <div className="rounded-2xl bg-white border border-slate-100 p-5">
+                                  <div className="text-sm font-bold text-slate-900">
+                                    עם מה יוצאים
+                                  </div>
+                                  <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                                    {s.out.map((t) => (
+                                      <li
+                                        key={t}
+                                        className="flex items-start gap-2"
+                                      >
+                                        <span className="text-brand font-black">
+                                          ✓
+                                        </span>
+                                        <span>{t}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </Reveal>
+                  );
+                })}
+              </div>
+
+              <div className="mt-10 flex justify-center">
+                <GlowCapture
+                  className="inline-block rounded-[999px]"
+                  glowSize={320}
+                >
+                  <button
+                    onClick={() => setOpen(true)}
+                    className="h-14 rounded-[999px] bg-brand px-10 text-white font-semibold shadow-btn hover:opacity-95 transition"
+                  >
+                    לבקשת שיחת התאמה
+                  </button>
+                </GlowCapture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   function AboutSectionEditorial() {
     return (
       <section id="about" className="bg-slate-100 p-10 lg:p-32">
@@ -487,9 +781,9 @@ export default function InnerCirclePage() {
 
   const mentors = [
     "פיצוח אישי לכל אחת בשיטת ׳עסק ללא מתחרים׳ של צביקה!",
-    "סדנה מעשית להשקה נכונה של המוצר שלך!",
-    "פגישה 1 על 1 עם יהודית להתגברות על חסמים מנטליים!!",
-    "איב תעשה לנו סושיאל שמח ותוציא כל אחת עם חומרים מוכנים לפרסום!",
+    // "סדנה מעשית להשקה נכונה של המוצר שלך!",
+    // "פגישה 1 על 1 עם יהודית להתגברות על חסמים מנטליים!!",
+    // "איב תעשה לנו סושיאל שמח ותוציא כל אחת עם חומרים מוכנים לפרסום!",
     "פיצוח קהל היעד והגדרת המוצר המדוייקת שלך!",
   ];
 
@@ -840,7 +1134,7 @@ export default function InnerCirclePage() {
               </Reveal>
 
               <div className="relative mt-10 inline-flex flex-wrap justify-center gap-2 w-full">
-                {[1, 2, 3, 4, 5].map((i) => (
+                {[1, 2].map((i) => (
                   <Reveal key={i} delay={i * 0.06}>
                     <GlowCapture
                       className="border border-r-2 border-t-2 border-white rounded-2xl shadow-soft w-[260px] max-w-full h-[270px]"
@@ -906,12 +1200,15 @@ export default function InnerCirclePage() {
         </div>
       </section>
 
+      {/* SYLLABUS */}
+      <SyllabusSection />
+
       {/* <FitSection /> */}
 
       <section className="bg-gradient-to-b from-slate-50 to-slate-100 text-slate-800 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-4 pt-10">
               למי זה מתאים?
             </h2>
             <p className="text-center max-w-2xl mx-auto mb-6">
@@ -1017,49 +1314,6 @@ export default function InnerCirclePage() {
           </Reveal>
         </div>
       </section> */}
-
-      {/* SPRINTS */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-24 text-center">
-          <Reveal>
-            <div className="text-4xl sm:text-5xl font-extrabold">
-              מיקוד לייזר + עבודה בספרינטים
-            </div>
-            <div className="mt-4 text-slate-500">
-              4 שלבים שמזיזים אותך מהר מ<b>רעיון</b> ל<b>מוצר שעובד</b>
-            </div>
-          </Reveal>
-
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 text-right">
-            {sprintSteps.map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.06}>
-                <GlowCapture
-                  className="rounded-xl2 bg-white border border-slate-100 shadow-soft p-6 lg:p-8 h-44"
-                  glowColor="rgba(91,79,228,0.35)"
-                  glowSize={240}
-                >
-                  <div className="flex gap-2 items-center">
-                    <div className="h-8 w-8 rounded-xl2 bg-brand/10 flex items-center justify-center text-brand text-xl">
-                      {c.icon}
-                    </div>
-                    <div className="text-md lg:text-lg text-brand flex-nowrap font-bold">
-                      {c.title}
-                    </div>
-                  </div>
-                  <div className="lg:mt-3 text-slate-500 leading-relaxed text-right pr-10 pl-4 text-sm lg:text-base">
-                    {c.desc}
-                  </div>
-                </GlowCapture>
-              </Reveal>
-            ))}
-          </div>
-
-          <div className="mt-10 text-slate-600 max-w-4xl mx-auto leading-relaxed text-right">
-            אנחנו נפגשות כדי לעבוד, לא רק כדי להנות ולקשקש. את מגיעה עם רעיון
-            (גם אם הוא עדיין מבולגן), ויוצאת עם תוצר שמתקדם כל שבוע.
-          </div>
-        </div>
-      </section>
 
       {/* DARK OUTCOMES */}
       <section className="bg-[#0b1023] text-white">
