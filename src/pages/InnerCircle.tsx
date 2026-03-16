@@ -65,6 +65,7 @@ function Modal({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   async function submit() {
     if (!canSubmit) return;
+    fbq('track', 'Lead');‎
     setStatus("sending");
     try {
       const res = await fetch(
