@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>המדריך המלא - יצירת תוכן לרילז שעובד</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Heebo',sans-serif;background:#0f0c1a;color:#1a1a2e;min-height:100vh;direction:rtl}
+@media print{body{background:white}.no-print{display:none}}
+
+.cover{background:linear-gradient(135deg,#08060e 0%,#1a0a2e 100%);color:white;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 32px;page-break-after:always}
+.cover .tag{display:inline-block;background:rgba(255,60,190,0.15);border:1px solid rgba(255,60,190,0.4);color:#ff3cbe;font-size:11px;font-weight:700;letter-spacing:3px;padding:6px 18px;border-radius:30px;margin-bottom:32px;text-transform:uppercase}
+.cover h1{font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.2;margin-bottom:16px}
+.cover h1 span{color:#ff3cbe}
+.cover .sub{font-size:18px;color:rgba(255,255,255,0.5);max-width:520px;line-height:1.7;margin-bottom:48px}
+.cover .divider-line{width:80px;height:2px;background:#ff3cbe;margin:0 auto 48px}
+.cover .toc{text-align:right;max-width:420px;width:100%}
+.cover .toc-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:15px;color:rgba(255,255,255,0.65)}
+.cover .toc-item span{color:#ff3cbe;font-weight:700}
+
+.page{background:white;color:#1a1a2e;max-width:800px;margin:32px auto;border-radius:16px;overflow:hidden;page-break-after:always}
+.page-header{background:linear-gradient(135deg,#08060e,#1a0a2e);color:white;padding:32px 40px}
+.page-header .num{font-size:12px;letter-spacing:4px;color:#ff3cbe;text-transform:uppercase;margin-bottom:8px;font-weight:700}
+.page-header h2{font-size:clamp(22px,3vw,30px);font-weight:900;line-height:1.3}
+.page-header p{font-size:14px;color:rgba(255,255,255,0.5);margin-top:8px;line-height:1.6}
+.page-body{padding:36px 40px}
+
+.q-block{margin-bottom:28px}
+.q-block .q{font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:10px}
+.q-block .hint{font-size:13px;color:#888;margin-bottom:12px;line-height:1.6;font-style:italic}
+.answer-box{width:100%;min-height:80px;border:1.5px solid #e5e0f0;border-radius:10px;padding:14px;font-family:'Heebo',sans-serif;font-size:14px;color:#1a1a2e;resize:vertical;outline:none;transition:border-color 0.2s;background:#faf9ff}
+.answer-box:focus{border-color:#ff3cbe}
+.answer-line{width:100%;height:44px;border:none;border-bottom:1.5px solid #e5e0f0;padding:10px 0;font-family:'Heebo',sans-serif;font-size:15px;color:#1a1a2e;outline:none;background:transparent;transition:border-color 0.2s}
+.answer-line:focus{border-color:#ff3cbe}
+
+.table-wrap{overflow-x:auto;margin-bottom:28px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#1a0a2e;color:white;padding:12px 14px;text-align:right;font-weight:700}
+td{padding:12px 14px;border-bottom:1px solid #f0edf8;vertical-align:top}
+tr:nth-child(even) td{background:#faf9ff}
+.td-fill{min-height:40px;display:block;border-bottom:1px solid #ddd}
+
+.step-block{background:#faf9ff;border:1px solid #ede8f8;border-radius:12px;padding:22px 22px;margin-bottom:18px}
+.step-block .step-num{display:inline-block;background:#1a0a2e;color:white;width:28px;height:28px;border-radius:50%;font-size:13px;font-weight:900;text-align:center;line-height:28px;margin-left:10px;flex-shrink:0}
+.step-block .step-head{display:flex;align-items:center;margin-bottom:10px}
+.step-block h3{font-size:16px;font-weight:700;color:#1a0a2e}
+.step-block .desc{font-size:14px;color:#555;line-height:1.7;margin-bottom:12px}
+
+.checklist{list-style:none}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0edf8;font-size:14px;color:#444;line-height:1.6}
+.checklist li::before{content:'☐';font-size:16px;color:#ff3cbe;flex-shrink:0;margin-top:1px}
+
+.tip-box{background:linear-gradient(135deg,rgba(255,60,190,0.08),rgba(26,10,46,0.05));border:1px solid rgba(255,60,190,0.2);border-radius:10px;padding:16px 18px;margin:20px 0}
+.tip-box .tip-label{font-size:10px;letter-spacing:3px;color:#ff3cbe;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.tip-box p{font-size:13px;color:#444;line-height:1.65}
+
+.cta-download{display:block;background:#ff3cbe;color:white;text-align:center;font-family:'Heebo',sans-serif;font-size:16px;font-weight:700;padding:16px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;margin-top:28px;transition:background 0.2s}
+.cta-download:hover{background:#e0359f}
+
+.exercise-box{background:#fffbfe;border:2px solid #ff3cbe;border-radius:14px;padding:28px 28px}
+.exercise-box .ex-tag{font-size:10px;letter-spacing:3px;color:#ff3cbe;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.exercise-box h3{font-size:18px;font-weight:900;margin-bottom:12px}
+.exercise-box p{font-size:14px;color:#555;line-height:1.7;margin-bottom:16px}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="tag">מדריך מלא ומפורט</div>
+  <h1>יצירת תוכן לרילז<br><span>שעובד</span></h1>
+  <p class="sub">ממיפוי האמונות שלך ועד לתסריט מוכן לצילום - מסגרת עבודה מלאה</p>
+  <div class="divider-line"></div>
+  <div class="toc">
+    <div class="toc-item">חלק א׳ - האני מאמין שלך<span>01</span></div>
+    <div class="toc-item">חלק ב׳ - טבלת אג׳נדות<span>02</span></div>
+    <div class="toc-item">חלק ג׳ - 9 שלבים לתסריט<span>03</span></div>
+    <div class="toc-item">חלק ד׳ - צ׳קליסט + תרגיל<span>04</span></div>
+  </div>
+</div>
+
+<!-- PART 1 -->
+<div class="page">
+  <div class="page-header">
+    <div class="num">חלק א׳</div>
+    <h2>האני מאמין שלך</h2>
+    <p>לפני שמצלמים משהו - צריך לדעת מה האמונות שמנחות כל פעולה שלך. זה הבסיס של כל התוכן.</p>
+  </div>
+  <div class="page-body">
+
+    <div class="tip-box">
+      <div class="tip-label">למה זה חשוב</div>
+      <p>כולנו פועלות לפי אמונות שצברנו. השאלה היא אם אנחנו מודעות להן. ברגע שתדעי מה הן - כל יום מאתגר, כל הצלחה קטנה, כל סיפור מהיום יום הופך לסרטון שמעביר את האג׳נדה שאת רוצה לקדם.</p>
+    </div>
+
+    <div class="q-block">
+      <div class="q">מה הדבר שאת הכי מאמינה בו לגבי איך צריך לחיות?</div>
+      <div class="hint">לא תשובה שנשמעת נחמדה - תשובה שאת באמת חיה לפיה, גם כשזה קשה.</div>
+      <textarea class="answer-box" placeholder="כתבי כאן..."></textarea>
+    </div>
+
+    <div class="q-block">
+      <div class="q">מה הדבר שאת חוזרת ואומרת לעצמך כשמשהו לא הולך כמו שתכננת?</div>
+      <div class="hint">המשפטים האלה הם האני מאמין שלך - הם הגרעין של התוכן שלך.</div>
+      <textarea class="answer-box" placeholder="כתבי כאן..."></textarea>
+    </div>
+
+    <div class="q-block">
+      <div class="q">מה למדת על עצמך שהפתיע אותך?</div>
+      <div class="hint">משהו שלא ציפית לגלות - על כוח שלך, על גבול שלך, על דרך שבה את מתמודדת.</div>
+      <textarea class="answer-box" placeholder="כתבי כאן..."></textarea>
+    </div>
+
+    <div class="q-block">
+      <div class="q">מה הכלל הכי גדול שמנחה את הבחירות שלך?</div>
+      <div class="hint">אחד. הכי חשוב. המשפט שאם מישהי הייתה שואלת אותך "איך את חיה?" היית עונה .</div>
+      <input class="answer-line" type="text" placeholder="כתבי כאן...">
+    </div>
+
+    <div class="exercise-box" style="margin-top:28px">
+      <div class="ex-tag">תרגיל א׳</div>
+      <h3>כתבי 5 אמונות שמנחות אותך</h3>
+      <p>כל אחת במשפט אחד ברור. לא רשימה של ערכים יפים - אמונות שאת ממש פועלת לפיהן ביום יום.</p>
+      <div class="q-block" style="margin-bottom:10px"><input class="answer-line" placeholder="אמונה 1:"></div>
+      <div class="q-block" style="margin-bottom:10px"><input class="answer-line" placeholder="אמונה 2:"></div>
+      <div class="q-block" style="margin-bottom:10px"><input class="answer-line" placeholder="אמונה 3:"></div>
+      <div class="q-block" style="margin-bottom:10px"><input class="answer-line" placeholder="אמונה 4:"></div>
+      <div class="q-block" style="margin-bottom:0"><input class="answer-line" placeholder="אמונה 5:"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PART 2 -->
+<div class="page">
+  <div class="page-header">
+    <div class="num">חלק ב׳</div>
+    <h2>טבלת האג׳נדות שלך</h2>
+    <p>הנושאים שאת יכולה לדבר עליהם שוב ושוב - הדלק לאינסוף תוכן.</p>
+  </div>
+  <div class="page-body">
+
+    <div class="tip-box">
+      <div class="tip-label">ההבדל בין אג׳נדה לנושא</div>
+      <p>נושא = "אני מדברת על בריאות". אג׳נדה = "אני מאמינה שהגוף שלך יודע מה הוא צריך יותר ממה שרופאים אומרים לך". האג׳נדה היא העמדה שלך - לא רק תחום.</p>
+    </div>
+
+    <p style="font-size:15px;font-weight:700;margin-bottom:16px;margin-top:8px">אג׳נדות עסקיות - אג׳נדות שבגללם את עושה מה שאת עושה מבחינה מקצועית בתחומך?</p>
+    <div class="table-wrap">
+    <table>
+      <tr><th>האג׳נדה שלי</th><th>הסיפור שמדגים אותה</th><th>פורמט מתאים</th></tr>
+      <tr><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td></tr>
+      <tr><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td></tr>
+      <tr><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td></tr>
+      <tr><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td></tr>
+    </table>
+    </div>
+
+    <p style="font-size:15px;font-weight:700;margin-bottom:16px;margin-top:24px">אג׳נדות אישיות - אמונות כלליות לא קשורות למקצוע/לעסק?</p>
+    <div class="table-wrap">
+    <table>
+      <tr><th>האג׳נדה שלי</th><th>הסיפור שמדגים אותה</th><th>פורמט מתאים</th></tr>
+      <tr><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td></tr>
+      <tr><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td></tr>
+      <tr><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td></tr>
+      <tr><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td><td><div class="td-fill"></div></td></tr>
+    </table>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">שאלות שיעזרו לך למלא</div>
+      <p>עסקי: מה שבור בתחום שלך? מה את עושה אחרת? מה התוצאה שהלקוח שלך מקבל רק ממך?<br>
+      אישי: מה שינית בחייך שנראה קטן אבל השפיע ענק? מה הכלל שאת חיה לפיו שרוב האנשים לא מכירים?</p>
+    </div>
+  </div>
+</div>
+
+<!-- PART 3 -->
+<div class="page">
+  <div class="page-header">
+    <div class="num">חלק ג׳</div>
+    <h2>9 שלבים לתסריט שמחבר</h2>
+    <p>מהרעיון הראשוני ועד לסרטון מוכן לצילום.</p>
+  </div>
+  <div class="page-body">
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">1</div><h3>בחרי אג׳נדה אחת מהטבלה</h3></div>
+      <div class="desc">אחת בלבד לסרטון אחד.</div>
+      <input class="answer-line" placeholder="האג׳נדה לסרטון הזה:">
+    </div>
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">2</div><h3>מצאי סיפור שמחבר</h3></div>
+      <div class="desc">מקרה ספציפי שבו האמונה הזו באה לידי ביטוי בחייך. כמה שיותר קונקרטי - מתי, איפה, מה קרה בדיוק (פרטים כמה שיותר אישיים וספציפיים יגרמו להדהות גדולה יותר, ספרי כאילו את מספרת לילדה בת 12 שלא מכירה אותך).</div>
+      <textarea class="answer-box" placeholder="הסיפור:"></textarea>
+    </div>
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">3</div><h3>בדקי איזו תדמית הסיפור מעביר</h3></div>
+      <div class="desc">מה יחשבו עלייך מי שיראה את הסרטון הזה לראשונה? האם זה מחזק את התדמית שאת בונה?</div>
+      <input class="answer-line" placeholder="התדמית שאני רוצה להעביר:">
+    </div>
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">4</div><h3>האם הנושא ויראלי?</h3></div>
+      <div class="desc">הנושא צריך לגעת בכאב רחב - נושא שמעניין אחוז רחב מהאוכלוסיה.</div>
+      <input class="answer-line" placeholder="למה זה רלוונטי לאנשים שלא מכירים אותי?">
+    </div>
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">5</div><h3>בחרי פורמט</h3></div>
+      <div class="desc">דיבור ישיר למצלמה / B-rolls עם voiceover / שיחה ספונטנית / ראיון - מה משרת הכי טוב את הסיפור הזה?</div>
+      <input class="answer-line" placeholder="הפורמט שבחרתי:">
+    </div>
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">6</div><h3>כתבי את התסריט</h3></div>
+      <div class="desc">תמציתי, עם דוגמאות ספציפיות. פתיחה שמסקרנת להמשיך לצפות - לא "היי כולם היום אני רוצה לדבר על..."</div>
+      <textarea class="answer-box" style="min-height:140px" placeholder="התסריט שלי:"></textarea>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">פתיחות שעובדות</div>
+      <p>✓ "הדבר שאף אחד לא אמר לי על..." &nbsp;&nbsp; ✓ "עשיתי טעות גדולה כש..." &nbsp;&nbsp; ✓ "יש משהו שאני עושה שאנשים תמיד שואלים אותי עליו..."</p>
+    </div>
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">7</div><h3>הכיני את הסביבה</h3></div>
+      <div class="desc">מול חלון עם אור טבעי בשעת יום, רקע נקי בלי בלגאן, מיקרופון טוב, ללא פילטרים. הצ׳קליסט המלא בחלק ד׳.</div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">8</div><h3>צלמי</h3></div>
+      <div class="desc">תסתכלי על עינית המצלמה, לא על עצמך. האנרגיה שלך היא 80% מהסרטון. אם את לא באנרגיה הנכונה - צלמי ביום אחר.</div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-head"><div class="step-num">9</div><h3>ערכי וצרפי כתוביות</h3></div>
+      <div class="desc">רוב האנשים צופים באוטובוס / בשירותים / בלילה - בלי סאונד. כתוביות הן חובה.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PART 4 -->
+<div class="page">
+  <div class="page-header">
+    <div class="num">חלק ד׳</div>
+    <h2>צ׳קליסט טכני + תרגיל יישום</h2>
+    <p>כל מה שצריך לבדוק לפני שלוחצות על REC.</p>
+  </div>
+  <div class="page-body">
+
+    <p style="font-size:16px;font-weight:700;margin-bottom:16px">צ׳קליסט לפני צילום</p>
+    <ul class="checklist">
+      <li>תאורה - מול חלון עם אור טבעי, לא מאחור</li>
+      <li>מיקרופון - לא רק המיקרופון הפנימי של הטלפון</li>
+      <li>רקע - נקי ומסודר, לא מבלבל</li>
+      <li>ללא פילטרים - אותנטי יותר</li>
+      <li>זווית הצילום - גובה עיניים, לא מלמטה</li>
+      <li>הטלפון בגובה יציב - לא מחזיקות ביד</li>
+      <li>מצב טיסה פועל - ללא הפרעות</li>
+      <li>בדקת שאת באנרגיה הנכונה לצילום?</li>
+    </ul>
+
+    <p style="font-size:16px;font-weight:700;margin:28px 0 16px">צ׳קליסט לעריכה</p>
+    <ul class="checklist">
+      <li>הסירי שתיקות ומילות מעבר</li>
+      <li>כתוביות - תמיד, בגופן קריא</li>
+      <li>מוזיקת רקע - עדינה, בווליום נמוך</li>
+      <li>קאטים מהירים בין קטעים - שמירה על קצב</li>
+      <li>הסרטון מתחיל בתוך 2-3 שניות - בלי פתיחה ארוכה</li>
+      <li>הסתכלת על עינית המצלמה לאורך הצילום?</li>
+    </ul>
+
+    <div class="exercise-box" style="margin-top:32px">
+      <div class="ex-tag">תרגיל יישום - עשי עכשיו</div>
+      <h3>כתבי את הסרטון הראשון שלך</h3>
+      <p>בחרי אג׳נדה אחת מהטבלה שמילאת. מצאי סיפור שמדגים אותה. עברי על 9 השלבים וכתבי תסריט קצר - עד 60 שניות.</p>
+
+      <div class="q-block" style="margin-bottom:16px">
+        <div class="q">האג׳נדה שבחרתי:</div>
+        <input class="answer-line" placeholder="">
+      </div>
+      <div class="q-block" style="margin-bottom:16px">
+        <div class="q">הסיפור שמדגים אותה:</div>
+        <textarea class="answer-box" placeholder=""></textarea>
+      </div>
+      <div class="q-block" style="margin-bottom:16px">
+        <div class="q">הפורמט:</div>
+        <input class="answer-line" placeholder="">
+      </div>
+      <div class="q-block">
+        <div class="q">התסריט (עד 60 שניות):</div>
+        <textarea class="answer-box" style="min-height:160px" placeholder="כתבי כאן..."></textarea>
+      </div>
+    </div>
+
+    <button class="cta-download no-print" onclick="window.print()">הדפיסי / שמרי כ-PDF</button>
+
+  </div>
+</div>
+
+</body>
+</html>
